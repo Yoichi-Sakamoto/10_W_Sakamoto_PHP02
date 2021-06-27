@@ -29,7 +29,12 @@ if($status==false) {
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     $view .= "<p>";
+    $view .= '<a href="detail.php?id='.$result["id"].'">'; //追加
     $view .= h($result['bookname']).':'.h($result['issuedate']).':'.h($result['author']).':'.h($result['url']).':'.h($result['genre']).':'.h($result['method']).':'.h($result['comments']).':'.h($result['reread']).':'.h($result['inputtime']);
+    $view .= '</a>'; //追加
+    $view .= '<a href="delete.php?id='.$result["id"].'">'; //追加
+    $view .= '  [ 削除 ]'; //追加
+    $view .= '</a>'; //追加
     $view .= "</p>";
   }
 
